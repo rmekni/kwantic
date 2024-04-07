@@ -18,3 +18,19 @@ TO
 ```
 join(' ', $var);
 ```
+
+To load fixtures:
+
+```
+php bin/console d:f:l
+```
+
+# admin
+sonata admin bundle, no firewall implemented, sorry for thet it's a long test
+
+```
+/admin
+```
+
+#front
+it's not that fancy design just showing data
