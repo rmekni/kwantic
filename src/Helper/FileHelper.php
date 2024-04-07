@@ -7,24 +7,10 @@ use Symfony\Component\HttpFoundation\File\File;
 
 class FileHelper
 {
-    /**
-     * @var ContainerHelper
-     */
-    private $containerHelper;
-
-    /**
-     * @var PosterUploader
-     */
-    private $posterUploader;
-
-    /**
-     * @param ContainerHelper $containerHelper
-     * @param PosterUploader $posterUploader
-     */
-    public function __construct(ContainerHelper $containerHelper, PosterUploader $posterUploader)
-    {
-        $this->posterUploader = $posterUploader;
-        $this->containerHelper = $containerHelper;
+    public function __construct(
+        private ContainerHelper $containerHelper,
+        private PosterUploader $posterUploader
+    ) {
     }
 
     /**

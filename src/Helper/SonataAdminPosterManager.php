@@ -15,11 +15,6 @@ class SonataAdminPosterManager
     private $entity;
 
     /**
-     * @var FileHelper
-     */
-    private $fileHelper;
-
-    /**
      * @var string
      */
     private $property;
@@ -37,7 +32,7 @@ class SonataAdminPosterManager
     /**
      * @param FileHelper $fileHelper
      */
-    public function __construct(FileHelper $fileHelper)
+    public function __construct(private FileHelper $fileHelper)
     {
         $this->fileHelper = $fileHelper;
     }

@@ -11,6 +11,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelType;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 final class ProductAdmin extends AbstractAdmin
 {
@@ -48,7 +49,7 @@ final class ProductAdmin extends AbstractAdmin
         $form
             ->add('subCategory', ModelType::class, ['label' => 'Product category'])
             ->add('name')
-            ->add('specifications')
+            ->add('specifications', TextareaType::class)
             ->add('image', FileType::class, ['data_class' => null, ...$fileFormOptions]);
     }
 

@@ -29,41 +29,11 @@ class PosterUploader implements PosterUploaderInterface
      */
     private $_target;
 
-    /**
-     * @var RandomHelper
-     */
-    private $randomHelper;
-
-    /**
-     * @var ContainerHelper
-     */
-    private $containerHelper;
-
-    /**
-     * @var FileValidator
-     */
-    private $fileValidator;
-
-    /**
-     * @var TranslationHelper
-     */
-    private $translationHelper;
-
-    /**
-     * FileValidator
-     *
-     * @param RandomHelper $randomHelper
-     * @param ContainerHelper $containerHelper
-     * @param FileValidator $fileValidator
-     */
     public function __construct(
-        RandomHelper $randomHelper,
-        ContainerHelper $containerHelper,
-        FileValidator $fileValidator,
+        private RandomHelper $randomHelper,
+        private ContainerHelper $containerHelper,
+        private FileValidator $fileValidator,
     ) {
-        $this->randomHelper = $randomHelper;
-        $this->containerHelper = $containerHelper;
-        $this->fileValidator = $fileValidator;
     }
 
 
@@ -91,18 +61,5 @@ class PosterUploader implements PosterUploaderInterface
         }
 
         return false;
-    }
-
-    /**
-     * Move temporary file to specific directory
-     *
-     * @param UploadedFile $file
-     * @return string
-     */
-    public function moveToTMPFolder(UploadedFile $file): string
-    {
-        $filesSystem = new Filesystem();
-        $filesSystem->copy($file->getPathname(), $this->containerHelper->getParameter('APP_TEMP_FOLDER') . $file->getFileName());
-        return $file->getFileName();
     }
 }
