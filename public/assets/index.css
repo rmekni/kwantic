@@ -1,0 +1,38 @@
+.sub-category {
+  cursor: pointer;
+}
+
+.sub-content {
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background-color: #e4e7e6;
+}
+
+h2 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: #1a1919;
+  padding: .75rem;
+}
+
+.products {
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.product {
+  margin: 20px 0;
+}
+
+.product .sub-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product .sub-content img {
+  width: 200px;
+  margin: .75rem;
+}

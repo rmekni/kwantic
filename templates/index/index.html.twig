@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="buttons">
+		{% for category in categories %}
+			<button class='button is-primary category-button' data-targeturl="{{ category['subCategoriesUrl'] }}">{{ category['name'] }}</button>
+		{% endfor %}
+	</div>
+	<div class="columns sub-categories is-multiline"></div>
+{% endblock %}
+{% block javascripts %}
+	<script src="assets/functions.js"></script>
+{% endblock %}

@@ -14,7 +14,7 @@ liip_imagine:
             filters:
                 thumbnail: { size: [96, 96], mode: inset }
                 background: { size: [96, 96], position: center }
-        product_image:
+        vign_image:
             quality: 60
             filters:
                 thumbnail: { size: [250, 250], mode: inset }

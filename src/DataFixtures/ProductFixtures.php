@@ -18,7 +18,7 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
             for ($j = 0; $j < 3; $j++) {
                 $product = new Product();
                 $product->setName($faker->word);
-                $product->setSpecifications('test');
+                $product->setSpecifications($faker->text);
                 $product->setImage($j % 2 == 0 ? '/uploads/product-fixtures/pelles.jpg' : '/uploads/product-fixtures/compacteur.jpeg');
                 $product->setSubCategory($subCategory);
 
