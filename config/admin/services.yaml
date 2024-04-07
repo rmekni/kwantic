@@ -1,0 +1,26 @@
+services:
+    admin.category:
+        class: App\Admin\CategoryAdmin
+        calls:
+            - [addChild, ["@admin.sub_category", "category"]]
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Category, controller: ~, manager_type: orm, group: admin, label: Category }
+
+    admin.sub_category:
+        class: App\Admin\SubCategoryAdmin
+        calls:
+            - [addChild, ["@admin.product", "subCategory"]]
+        tags:
+            - {
+                  name: sonata.admin,
+                  model_class: App\Entity\SubCategory,
+                  controller: 'App\Controller\Admin\OverridedAdminController',
+                  manager_type: orm,
+                  group: admin,
+                  label: SubCategory,
+              }
+
+    admin.product:
+        class: App\Admin\ProductAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Product, controller: ~, manager_type: orm, group: admin, label: Product }

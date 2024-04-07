@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Entity\App;
+namespace App\Entity;
 
-use App\Repository\App\ProductRepository;
+use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 class Product
 {
+    const UPLOAD_FOLDER = 'product';
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -25,6 +27,11 @@ class Product
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
     private ?SubCategory $subCategory = null;
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     public function getId(): ?int
     {

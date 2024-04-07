@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\App;
+namespace App\Entity;
 
-use App\Repository\App\SubCategoryRepository;
+use App\Repository\SubCategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,6 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: SubCategoryRepository::class)]
 class SubCategory
 {
+    const UPLOAD_FOLDER = 'sub-category';
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -34,6 +36,11 @@ class SubCategory
     public function __construct()
     {
         $this->products = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): ?int

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity\App;
+namespace App\Entity;
 
-use App\Repository\App\CategoryRepository;
+use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -27,6 +27,11 @@ class Category
     public function __construct()
     {
         $this->subCategories = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): ?int

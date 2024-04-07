@@ -1,0 +1,21 @@
+liip_imagine:
+    driver: "gd"
+    resolvers:
+        default:
+            web_path: ~
+    webp:
+        generate: true
+        quality: 60
+
+    filter_sets:
+        cache: ~
+        thumb_mid:
+            quality: 60
+            filters:
+                thumbnail: { size: [96, 96], mode: inset }
+                background: { size: [96, 96], position: center }
+        product_image:
+            quality: 60
+            filters:
+                thumbnail: { size: [250, 250], mode: inset }
+                background: { size: [250, 250], position: center }
